@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reidah Hamad Al Mukhlas | Steel & Aluminium Fabrication</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23333" width="1200" height="600"/><g stroke="%23555" stroke-width="2" opacity="0.3"><line x1="0" y1="0" x2="1200" y2="600"/><line x1="0" y1="300" x2="1200" y2="300"/><line x1="600" y1="0" x2="600" y2="600"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #ffd700;
+            color: #1a1a1a;
+        }
+
+        .btn-primary:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #ffd700;
+        }
+
+        .btn-secondary:hover {
+            background: #ffd700;
+            color: #1a1a1a;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+            font-size: 16px;
+        }
+
+        /* About Section */
+        .about {
+            background: #f9f9f9;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .about-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            color: #555;
+        }
+
+        .about-features li:before {
+            content: "✓ ";
+            color: #ffd700;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .stat-box .number {
+            font-size: 36px;
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .stat-box .label {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* Services Section */
+        .services {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid #ffd700;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+        }
+
+        .contact h2 {
+            color: #ffd700;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .contact-info h3 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .contact-item {
+            margin-bottom: 30px;
+        }
+
+        .contact-item label {
+            display: block;
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .contact-item p {
+            font-size: 18px;
+            color: white;
+        }
+
+        .contact-item a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #ffed4e;
+        }
+
+        .stars {
+            color: #ffd700;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .rating-text {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Map */
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 2px solid #ffd700;
+        }
+
+        footer p {
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">🏭 Reidah Hamad</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Expert Steel & Aluminium Fabrication</h1>
+            <p>27+ Years of Precision Craftsmanship • Custom Solutions • Premium Quality</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Get a Quote</a>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Our Workshop</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>27 Years of Excellence</h3>
+                    <p>Reidah Hamad Al Mukhlas Steel & Aluminium Workshop has been delivering premium steel and aluminium fabrication solutions for over two decades.</p>
+                    <p>We pride ourselves on quality craftsmanship, reliability, and customer satisfaction. From custom residential doors to large-scale industrial fabrication, we handle projects of all sizes with precision and expertise.</p>
+                    <p>Our experienced team combines traditional metalworking skills with modern fabrication techniques to create durable, aesthetically pleasing solutions tailored to your needs.</p>
+                    
+                    <ul class="about-features">
+                        <li>5-Star Customer Satisfaction</li>
+                        <li>Custom-Made Solutions</li>
+                        <li>Expert Craftsmanship</li>
+                        <li>Residential, Commercial & Industrial Projects</li>
+                        <li>On-Time Delivery</li>
+                    </ul>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="number">27+</div>
+                        <div class="label">Years Experience</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stars">★★★★★</div>
+                        <div class="rating-text">5-Star Rated</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">100+</div>
+                        <div class="label">Happy Clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p class="section-subtitle">Professional steel and aluminium fabrication for all your needs</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🚪 Custom Doors & Windows</h3>
+                    <p>Bespoke steel and aluminium doors and windows designed and fabricated to your specifications. Perfect for homes, offices, and commercial buildings.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>🏠 Gates & Grills</h3>
+                    <p>Durable, stylish gates and security grills for residential and commercial properties. Custom designs available to match your aesthetic.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>🔲 Shabak & Shebko Frames</h3>
+                    <p>Traditional and modern frame solutions for doors, windows, and decorative installations. Perfectly suited for Middle Eastern designs.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>✨ Stainless Steel Works</h3>
+                    <p>High-quality stainless steel fabrication for kitchens, commercial spaces, and industrial applications. Food-grade and corrosion-resistant.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>🏭 Hangar & Industrial Fabrication</h3>
+                    <p>Large-scale steel structure fabrication for warehouses, hangars, and industrial facilities requiring precision metalwork.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>⚙️ Structural Metalwork</h3>
+                    <p>All types of iron and aluminium fabrication including railings, stairs, canopies, and structural elements for any project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p class="section-subtitle">Ready to discuss your project? We're here to help!</p>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+
+                    <div class="contact-item">
+                        <label>📞 PHONE</label>
+                        <p><a href="tel:+966551378709">+966 55 137 8709</a></p>
+                    </div>
+
+                    <div class="contact-item">
+                        <label>📍 LOCATION</label>
+                        <p>7170, Al Khodaryah<br>Dammam 32435<br>Saudi Arabia</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <label>⏰ HOURS</label>
+                        <p>Opens 7:00 AM<br><small style="color: #aaa;">Call for exact closing hours</small></p>
+                    </div>
+
+                    <div class="contact-item">
+                        <label>⭐ RATING</label>
+                        <div class="stars">★★★★★</div>
+                        <p class="rating-text">5.0 out of 5 - Google Reviews</p>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3563.8842047892353!2d50.23567!3d26.43861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49f6b8b8b8b8b9%3A0x1234567890!2sReidah%20Hamad%20Al%20Mukhlas%20Steel%20%26%20Aluminium%20Workshop!5e0!3m2!1sen!2ssa!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Reidah Hamad Al Mukhlas Steel & Aluminium Workshop. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 12px;">Professional Fabrication | Quality Craftsmanship | Customer Satisfaction</p>
+        </div>
+    </footer>
+</body>
+</html>
