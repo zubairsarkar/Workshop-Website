@@ -17,6 +17,11 @@
             color: #333;
         }
 
+        body.arabic {
+            direction: rtl;
+            font-family: 'Arial', 'Segoe UI', sans-serif;
+        }
+
         header {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: white;
@@ -57,6 +62,22 @@
 
         nav a:hover {
             color: #ffd700;
+        }
+
+        .language-toggle {
+            background: #ffd700;
+            color: #1a1a1a;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .language-toggle:hover {
+            background: #ffed4e;
+            transform: scale(1.05);
         }
 
         /* Hero Section */
@@ -191,6 +212,11 @@
             margin-right: 10px;
         }
 
+        body.arabic .about-features li:before {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+
         .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -235,6 +261,11 @@
             border-left: 5px solid #ffd700;
             transition: all 0.3s;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        body.arabic .service-card {
+            border-left: none;
+            border-right: 5px solid #ffd700;
         }
 
         .service-card:hover {
@@ -322,6 +353,12 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         /* Footer */
         footer {
             background: #1a1a1a;
@@ -334,6 +371,13 @@
         footer p {
             color: #aaa;
         }
+
+        /* Hidden content for language switching */
+        .en { display: block; }
+        .ar { display: none; }
+
+        body.arabic .en { display: none; }
+        body.arabic .ar { display: block; }
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -383,23 +427,53 @@
     <header>
         <nav>
             <div class="logo">🏭 Reidah Hamad</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div style="display: flex; gap: 30px; align-items: center;">
+                <ul>
+                    <li><a href="#home">
+                        <span class="en">Home</span>
+                        <span class="ar">الرئيسية</span>
+                    </a></li>
+                    <li><a href="#about">
+                        <span class="en">About</span>
+                        <span class="ar">حول</span>
+                    </a></li>
+                    <li><a href="#services">
+                        <span class="en">Services</span>
+                        <span class="ar">الخدمات</span>
+                    </a></li>
+                    <li><a href="#contact">
+                        <span class="en">Contact</span>
+                        <span class="ar">اتصل</span>
+                    </a></li>
+                </ul>
+                <button class="language-toggle" onclick="toggleLanguage()">
+                    <span class="en">العربية</span>
+                    <span class="ar">English</span>
+                </button>
+            </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Expert Steel & Aluminium Fabrication</h1>
-            <p>27+ Years of Precision Craftsmanship • Custom Solutions • Premium Quality</p>
+            <h1>
+                <span class="en">Expert Steel & Aluminium Fabrication</span>
+                <span class="ar">تصنيع الفولاذ والألمنيوم المتخصص</span>
+            </h1>
+            <p>
+                <span class="en">27+ Years of Precision Craftsmanship • Custom Solutions • Premium Quality</span>
+                <span class="ar">27+ سنة من الحرفية الدقيقة • حلول مخصصة • جودة عالية</span>
+            </p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Get a Quote</a>
-                <a href="#services" class="btn btn-secondary">Our Services</a>
+                <a href="#contact" class="btn btn-primary">
+                    <span class="en">Get a Quote</span>
+                    <span class="ar">احصل على عرض سعر</span>
+                </a>
+                <a href="#services" class="btn btn-secondary">
+                    <span class="en">Our Services</span>
+                    <span class="ar">خدماتنا</span>
+                </a>
             </div>
         </div>
     </section>
@@ -407,36 +481,47 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <h2>About Our Workshop</h2>
+            <h2>
+                <span class="en">About Our Workshop</span>
+                <span class="ar">حول ورشتنا</span>
+            </h2>
             
             <div class="about-content">
                 <div class="about-text">
-                    <h3>27 Years of Excellence</h3>
-                    <p>Reidah Hamad Al Mukhlas Steel & Aluminium Workshop has been delivering premium steel and aluminium fabrication solutions for over two decades.</p>
-                    <p>We pride ourselves on quality craftsmanship, reliability, and customer satisfaction. From custom residential doors to large-scale industrial fabrication, we handle projects of all sizes with precision and expertise.</p>
-                    <p>Our experienced team combines traditional metalworking skills with modern fabrication techniques to create durable, aesthetically pleasing solutions tailored to your needs.</p>
+                    <h3>
+                        <span class="en">27 Years of Excellence</span>
+                        <span class="ar">27 سنة من التميز</span>
+                    </h3>
+                    <p>
+                        <span class="en">Reidah Hamad Al Mukhlas Steel & Aluminium Workshop has been delivering premium steel and aluminium fabrication solutions for over two decades.</span>
+                        <span class="ar">توفر ورشة رئيدة حمد المخلص للفولاذ والألمنيوم حلول تصنيع فولاذ وألمنيوم عالية الجودة لأكثر من عقدين من الزمن.</span>
+                    </p>
+                    <p>
+                        <span class="en">We pride ourselves on quality craftsmanship, reliability, and customer satisfaction. From custom residential doors to large-scale industrial fabrication, we handle projects of all sizes with precision and expertise.</span>
+                        <span class="ar">نفخر بحرفيتنا العالية وموثوقيتنا ورضا العملاء. من الأبواب السكنية المخصصة إلى التصنيع الصناعي واسع النطاق، نتعامل مع المشاريع بجميع أحجامها بدقة وخبرة.</span>
+                    </p>
                     
                     <ul class="about-features">
-                        <li>5-Star Customer Satisfaction</li>
-                        <li>Custom-Made Solutions</li>
-                        <li>Expert Craftsmanship</li>
-                        <li>Residential, Commercial & Industrial Projects</li>
-                        <li>On-Time Delivery</li>
+                        <li><span class="en">5-Star Customer Satisfaction</span><span class="ar">رضا العملاء 5 نجوم</span></li>
+                        <li><span class="en">Custom-Made Solutions</span><span class="ar">حلول مصنوعة حسب الطلب</span></li>
+                        <li><span class="en">Expert Craftsmanship</span><span class="ar">حرفية متخصصة</span></li>
+                        <li><span class="en">Residential, Commercial & Industrial Projects</span><span class="ar">مشاريع سكنية وتجارية وصناعية</span></li>
+                        <li><span class="en">On-Time Delivery</span><span class="ar">التسليم في الموعد المحدد</span></li>
                     </ul>
                 </div>
 
                 <div class="stats">
                     <div class="stat-box">
                         <div class="number">27+</div>
-                        <div class="label">Years Experience</div>
+                        <div class="label"><span class="en">Years Experience</span><span class="ar">سنوات من الخبرة</span></div>
                     </div>
                     <div class="stat-box">
                         <div class="stars">★★★★★</div>
-                        <div class="rating-text">5-Star Rated</div>
+                        <div class="rating-text"><span class="en">5-Star Rated</span><span class="ar">تصنيف 5 نجوم</span></div>
                     </div>
                     <div class="stat-box">
                         <div class="number">100+</div>
-                        <div class="label">Happy Clients</div>
+                        <div class="label"><span class="en">Happy Clients</span><span class="ar">العملاء السعداء</span></div>
                     </div>
                 </div>
             </div>
@@ -446,38 +531,80 @@
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
-            <h2>Our Services</h2>
-            <p class="section-subtitle">Professional steel and aluminium fabrication for all your needs</p>
+            <h2>
+                <span class="en">Our Services</span>
+                <span class="ar">خدماتنا</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="en">Professional steel and aluminium fabrication for all your needs</span>
+                <span class="ar">تصنيع فولاذ وألمنيوم احترافي لجميع احتياجاتك</span>
+            </p>
 
             <div class="services-grid">
                 <div class="service-card">
-                    <h3>🚪 Custom Doors & Windows</h3>
-                    <p>Bespoke steel and aluminium doors and windows designed and fabricated to your specifications. Perfect for homes, offices, and commercial buildings.</p>
+                    <h3>
+                        <span class="en">🚪 Custom Doors & Windows</span>
+                        <span class="ar">🚪 أبواب ونوافذ مخصصة</span>
+                    </h3>
+                    <p>
+                        <span class="en">Bespoke steel and aluminium doors and windows designed and fabricated to your specifications.</span>
+                        <span class="ar">أبواب ونوافذ فولاذية وألمنيوم مخصصة مصممة ومصنوعة وفقاً لمواصفاتك.</span>
+                    </p>
                 </div>
 
                 <div class="service-card">
-                    <h3>🏠 Gates & Grills</h3>
-                    <p>Durable, stylish gates and security grills for residential and commercial properties. Custom designs available to match your aesthetic.</p>
+                    <h3>
+                        <span class="en">🏠 Gates & Grills</span>
+                        <span class="ar">🏠 أبواب وأقفال</span>
+                    </h3>
+                    <p>
+                        <span class="en">Durable, stylish gates and security grills for residential and commercial properties.</span>
+                        <span class="ar">أبواب وأقفال أمان متينة وأنيقة للعقارات السكنية والتجارية.</span>
+                    </p>
                 </div>
 
                 <div class="service-card">
-                    <h3>🔲 Shabak & Shebko Frames</h3>
-                    <p>Traditional and modern frame solutions for doors, windows, and decorative installations. Perfectly suited for Middle Eastern designs.</p>
+                    <h3>
+                        <span class="en">🔲 Shabak & Shebko Frames</span>
+                        <span class="ar">🔲 إطارات شبك وشيبكو</span>
+                    </h3>
+                    <p>
+                        <span class="en">Traditional and modern frame solutions for doors, windows, and decorative installations.</span>
+                        <span class="ar">حلول إطارات تقليدية وحديثة للأبواب والنوافذ والتركيبات الزخرفية.</span>
+                    </p>
                 </div>
 
                 <div class="service-card">
-                    <h3>✨ Stainless Steel Works</h3>
-                    <p>High-quality stainless steel fabrication for kitchens, commercial spaces, and industrial applications. Food-grade and corrosion-resistant.</p>
+                    <h3>
+                        <span class="en">✨ Stainless Steel Works</span>
+                        <span class="ar">✨ أعمال الفولاذ المقاوم للصدأ</span>
+                    </h3>
+                    <p>
+                        <span class="en">High-quality stainless steel fabrication for kitchens, commercial spaces, and industrial applications.</span>
+                        <span class="ar">تصنيع فولاذ مقاوم للصدأ عالي الجودة للمطابخ والمساحات التجارية والتطبيقات الصناعية.</span>
+                    </p>
                 </div>
 
                 <div class="service-card">
-                    <h3>🏭 Hangar & Industrial Fabrication</h3>
-                    <p>Large-scale steel structure fabrication for warehouses, hangars, and industrial facilities requiring precision metalwork.</p>
+                    <h3>
+                        <span class="en">🏭 Hangar & Industrial Fabrication</span>
+                        <span class="ar">🏭 تصنيع الحنجر والصناعي</span>
+                    </h3>
+                    <p>
+                        <span class="en">Large-scale steel structure fabrication for warehouses, hangars, and industrial facilities.</span>
+                        <span class="ar">تصنيع هياكل فولاذية واسعة النطاق للمستودعات والحظائر والمرافق الصناعية.</span>
+                    </p>
                 </div>
 
                 <div class="service-card">
-                    <h3>⚙️ Structural Metalwork</h3>
-                    <p>All types of iron and aluminium fabrication including railings, stairs, canopies, and structural elements for any project.</p>
+                    <h3>
+                        <span class="en">⚙️ Structural Metalwork</span>
+                        <span class="ar">⚙️ أعمال معادن هيكلية</span>
+                    </h3>
+                    <p>
+                        <span class="en">All types of iron and aluminium fabrication including railings, stairs, canopies, and structural elements.</span>
+                        <span class="ar">جميع أنواع تصنيع الحديد والألمنيوم بما في ذلك الدرابزين والسلالم والأرجوحات والعناصر الهيكلية.</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -486,37 +613,59 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2>Get In Touch</h2>
-            <p class="section-subtitle">Ready to discuss your project? We're here to help!</p>
+            <h2>
+                <span class="en">Get In Touch</span>
+                <span class="ar">تواصل معنا</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="en">Ready to discuss your project? We're here to help!</span>
+                <span class="ar">هل أنت مستعد لمناقشة مشروعك؟ نحن هنا لمساعدتك!</span>
+            </p>
 
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Contact Information</h3>
+                    <h3>
+                        <span class="en">Contact Information</span>
+                        <span class="ar">معلومات الاتصال</span>
+                    </h3>
 
                     <div class="contact-item">
-                        <label>📞 PHONE</label>
+                        <label>📞 <span class="en">PHONE</span><span class="ar">الهاتف</span></label>
                         <p><a href="tel:+966551378709">+966 55 137 8709</a></p>
                     </div>
 
                     <div class="contact-item">
-                        <label>📍 LOCATION</label>
-                        <p>7170, Al Khodaryah<br>Dammam 32435<br>Saudi Arabia</p>
+                        <label>📍 <span class="en">LOCATION</span><span class="ar">الموقع</span></label>
+                        <p>
+                            <span class="en">7170, Al Khodaryah<br>Dammam 32435<br>Saudi Arabia</span>
+                            <span class="ar">7170، الخضرية<br>الدمام 32435<br>المملكة العربية السعودية</span>
+                        </p>
+                        <a href="https://maps.app.goo.gl/jfTcFyVsYLGbY2wX9" target="_blank" class="btn btn-primary" style="margin-top: 10px; padding: 10px 20px; font-size: 14px;">
+                            <span class="en">📍 View on Google Maps</span>
+                            <span class="ar">📍 اعرض على جوجل مابس</span>
+                        </a>
                     </div>
 
                     <div class="contact-item">
-                        <label>⏰ HOURS</label>
-                        <p>Opens 7:00 AM<br><small style="color: #aaa;">Call for exact closing hours</small></p>
+                        <label>⏰ <span class="en">HOURS</span><span class="ar">ساعات العمل</span></label>
+                        <p>
+                            <span class="en">Opens 7:00 AM<br><small style="color: #aaa;">Call for exact closing hours</small></span>
+                            <span class="ar">يفتح الساعة 7:00 صباحاً<br><small style="color: #aaa;">اتصل للحصول على ساعات الإغلاق الدقيقة</small></span>
+                        </p>
                     </div>
 
                     <div class="contact-item">
-                        <label>⭐ RATING</label>
+                        <label>⭐ <span class="en">RATING</span><span class="ar">التقييم</span></label>
                         <div class="stars">★★★★★</div>
-                        <p class="rating-text">5.0 out of 5 - Google Reviews</p>
+                        <p class="rating-text">
+                            <span class="en">5.0 out of 5 - Google Reviews</span>
+                            <span class="ar">5.0 من 5 - تقييمات جوجل</span>
+                        </p>
                     </div>
                 </div>
 
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3563.8842047892353!2d50.23567!3d26.43861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49f6b8b8b8b8b9%3A0x1234567890!2sReidah%20Hamad%20Al%20Mukhlas%20Steel%20%26%20Aluminium%20Workshop!5e0!3m2!1sen!2ssa!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3563.8826!2d50.2390!3d26.4375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49f7d4d4d4d4d5%3A0xabcdef1234567890!2sReidah%20Hamad%20Al%20Mukhlas%20Steel%20%26%20Aluminium%20Workshop!5e0!3m2!1sen!2ssa!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border:0;"></iframe>
                 </div>
             </div>
         </div>
@@ -525,9 +674,47 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Reidah Hamad Al Mukhlas Steel & Aluminium Workshop. All rights reserved.</p>
-            <p style="margin-top: 10px; font-size: 12px;">Professional Fabrication | Quality Craftsmanship | Customer Satisfaction</p>
+            <p>
+                <span class="en">&copy; 2024 Reidah Hamad Al Mukhlas Steel & Aluminium Workshop. All rights reserved.</span>
+                <span class="ar">&copy; 2024 ورشة رئيدة حمد المخلص للفولاذ والألمنيوم. جميع الحقوق محفوظة.</span>
+            </p>
+            <p style="margin-top: 10px; font-size: 12px;">
+                <span class="en">Professional Fabrication | Quality Craftsmanship | Customer Satisfaction</span>
+                <span class="ar">تصنيع احترافي | حرفية عالية | رضا العملاء</span>
+            </p>
         </div>
     </footer>
+
+    <script>
+        function toggleLanguage() {
+            document.body.classList.toggle('arabic');
+            
+            // Save preference
+            if (document.body.classList.contains('arabic')) {
+                localStorage.setItem('language', 'arabic');
+            } else {
+                localStorage.setItem('language', 'english');
+            }
+        }
+
+        // Load saved language preference
+        window.addEventListener('load', function() {
+            const savedLanguage = localStorage.getItem('language');
+            if (savedLanguage === 'arabic') {
+                document.body.classList.add('arabic');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
