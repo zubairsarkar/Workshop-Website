@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reidah Hamad Al Mukhlas | Steel & Aluminium Fabrication</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        body.arabic {
+            direction: rtl;
+            font-family: 'Arial', 'Segoe UI', sans-serif;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        .language-toggle {
+            background: #ffd700;
+            color: #1a1a1a;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .language-toggle:hover {
+            background: #ffed4e;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23333" width="1200" height="600"/><g stroke="%23555" stroke-width="2" opacity="0.3"><line x1="0" y1="0" x2="1200" y2="600"/><line x1="0" y1="300" x2="1200" y2="300"/><line x1="600" y1="0" x2="600" y2="600"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #ffd700;
+            color: #1a1a1a;
+        }
+
+        .btn-primary:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #ffd700;
+        }
+
+        .btn-secondary:hover {
+            background: #ffd700;
+            color: #1a1a1a;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+            font-size: 16px;
+        }
+
+        /* About Section */
+        .about {
+            background: #f9f9f9;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .about-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            color: #555;
+        }
+
+        .about-features li:before {
+            content: "✓ ";
+            color: #ffd700;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        body.arabic .about-features li:before {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .stat-box .number {
+            font-size: 36px;
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .stat-box .label {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* Services Section */
+        .services {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid #ffd700;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        body.arabic .service-card {
+            border-left: none;
+            border-right: 5px solid #ffd700;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+        }
+
+        .contact h2 {
+            color: #ffd700;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .contact-info h3 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .contact-item {
+            margin-bottom: 30px;
+        }
+
+        .contact-item label {
+            display: block;
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .contact-item p {
+            font-size: 18px;
+            color: white;
+        }
+
+        .contact-item a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #ffed4e;
+        }
+
+        .stars {
+            color: #ffd700;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .rating-text {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Map */
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 2px solid #ffd700;
+        }
+
+        footer p {
+            color: #aaa;
+        }
+
+        /* Hidden content for language switching */
+        .en { display: block; }
+        .ar { display: none; }
+
+        body.arabic .en { display: none; }
+        body.arabic .ar { display: block; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">🏭 Reidah Hamad</div>
+            <div style="display: flex; gap: 30px; align-items: center;">
+                <ul>
+                    <li><a href="#home">
+                        <span class="en">Home</span>
+                        <span class="ar">الرئيسية</span>
+                    </a></li>
+                    <li><a href="#about">
+                        <span class="en">About</span>
+                        <span class="ar">حول</span>
+                    </a></li>
+                    <li><a href="#services">
+                        <span class="en">Services</span>
+                        <span class="ar">الخدمات</span>
+                    </a></li>
+                    <li><a href="#contact">
+                        <span class="en">Contact</span>
+                        <span class="ar">اتصل</span>
+                    </a></li>
+                </ul>
+                <button class="language-toggle" onclick="toggleLanguage()">
+                    <span class="en">العربية</span>
+                    <span class="ar">English</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>
+                <span class="en">Expert Steel & Aluminium Fabrication</span>
+                <span class="ar">تصنيع الفولاذ والألمنيوم المتخصص</span>
+            </h1>
+            <p>
+                <span class="en">27+ Years of Precision Craftsmanship • Custom Solutions • Premium Quality</span>
+                <span class="ar">27+ سنة من الحرفية الدقيقة • حلول مخصصة • جودة عالية</span>
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <span class="en">Get a Quote</span>
+                    <span class="ar">احصل على عرض سعر</span>
+                </a>
+                <a href="#services" class="btn btn-secondary">
+                    <span class="en">Our Services</span>
+                    <span class="ar">خدماتنا</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>
+                <span class="en">About Our Workshop</span>
+                <span class="ar">حول ورشتنا</span>
+            </h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>
+                        <span class="en">27 Years of Excellence</span>
+                        <span class="ar">27 سنة من التميز</span>
+                    </h3>
+                    <p>
+                        <span class="en">Reidah Hamad Al Mukhlas Steel & Aluminium Workshop has been delivering premium steel and aluminium fabrication solutions for over two decades.</span>
+                        <span class="ar">توفر ورشة رئيدة حمد المخلص للفولاذ والألمنيوم حلول تصنيع فولاذ وألمنيوم عالية الجودة لأكثر من عقدين من الزمن.</span>
+                    </p>
+                    <p>
+                        <span class="en">We pride ourselves on quality craftsmanship, reliability, and customer satisfaction. From custom residential doors to large-scale industrial fabrication, we handle projects of all sizes with precision and expertise.</span>
+                        <span class="ar">نفخر بحرفيتنا العالية وموثوقيتنا ورضا العملاء. من الأبواب السكنية المخصصة إلى التصنيع الصناعي واسع النطاق، نتعامل مع المشاريع بجميع أحجامها بدقة وخبرة.</span>
+                    </p>
+                    
+                    <ul class="about-features">
+                        <li><span class="en">5-Star Customer Satisfaction</span><span class="ar">رضا العملاء 5 نجوم</span></li>
+                        <li><span class="en">Custom-Made Solutions</span><span class="ar">حلول مصنوعة حسب الطلب</span></li>
+                        <li><span class="en">Expert Craftsmanship</span><span class="ar">حرفية متخصصة</span></li>
+                        <li><span class="en">Residential, Commercial & Industrial Projects</span><span class="ar">مشاريع سكنية وتجارية وصناعية</span></li>
+                        <li><span class="en">On-Time Delivery</span><span class="ar">التسليم في الموعد المحدد</span></li>
+                    </ul>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="number">27+</div>
+                        <div class="label"><span class="en">Years Experience</span><span class="ar">سنوات من الخبرة</span></div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stars">★★★★★</div>
+                        <div class="rating-text"><span class="en">5-Star Rated</span><span class="ar">تصنيف 5 نجوم</span></div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">100+</div>
+                        <div class="label"><span class="en">Happy Clients</span><span class="ar">العملاء السعداء</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>
+                <span class="en">Our Services</span>
+                <span class="ar">خدماتنا</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="en">Professional steel and aluminium fabrication for all your needs</span>
+                <span class="ar">تصنيع فولاذ وألمنيوم احترافي لجميع احتياجاتك</span>
+            </p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>
+                        <span class="en">🚪 Custom Doors & Windows</span>
+                        <span class="ar">🚪 أبواب ونوافذ مخصصة</span>
+                    </h3>
+                    <p>
+                        <span class="en">Bespoke steel and aluminium doors and windows designed and fabricated to your specifications.</span>
+                        <span class="ar">أبواب ونوافذ فولاذية وألمنيوم مخصصة مصممة ومصنوعة وفقاً لمواصفاتك.</span>
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <h3>
+                        <span class="en">🏠 Gates & Grills</span>
+                        <span class="ar">🏠 أبواب وأقفال</span>
+                    </h3>
+                    <p>
+                        <span class="en">Durable, stylish gates and security grills for residential and commercial properties.</span>
+                        <span class="ar">أبواب وأقفال أمان متينة وأنيقة للعقارات السكنية والتجارية.</span>
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <h3>
+                        <span class="en">🔲 Shabak & Shebko Frames</span>
+                        <span class="ar">🔲 إطارات شبك وشيبكو</span>
+                    </h3>
+                    <p>
+                        <span class="en">Traditional and modern frame solutions for doors, windows, and decorative installations.</span>
+                        <span class="ar">حلول إطارات تقليدية وحديثة للأبواب والنوافذ والتركيبات الزخرفية.</span>
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <h3>
+                        <span class="en">✨ Stainless Steel Works</span>
+                        <span class="ar">✨ أعمال الفولاذ المقاوم للصدأ</span>
+                    </h3>
+                    <p>
+                        <span class="en">High-quality stainless steel fabrication for kitchens, commercial spaces, and industrial applications.</span>
+                        <span class="ar">تصنيع فولاذ مقاوم للصدأ عالي الجودة للمطابخ والمساحات التجارية والتطبيقات الصناعية.</span>
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <h3>
+                        <span class="en">🏭 Hangar & Industrial Fabrication</span>
+                        <span class="ar">🏭 تصنيع الحنجر والصناعي</span>
+                    </h3>
+                    <p>
+                        <span class="en">Large-scale steel structure fabrication for warehouses, hangars, and industrial facilities.</span>
+                        <span class="ar">تصنيع هياكل فولاذية واسعة النطاق للمستودعات والحظائر والمرافق الصناعية.</span>
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <h3>
+                        <span class="en">⚙️ Structural Metalwork</span>
+                        <span class="ar">⚙️ أعمال معادن هيكلية</span>
+                    </h3>
+                    <p>
+                        <span class="en">All types of iron and aluminium fabrication including railings, stairs, canopies, and structural elements.</span>
+                        <span class="ar">جميع أنواع تصنيع الحديد والألمنيوم بما في ذلك الدرابزين والسلالم والأرجوحات والعناصر الهيكلية.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>
+                <span class="en">Get In Touch</span>
+                <span class="ar">تواصل معنا</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="en">Ready to discuss your project? We're here to help!</span>
+                <span class="ar">هل أنت مستعد لمناقشة مشروعك؟ نحن هنا لمساعدتك!</span>
+            </p>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>
+                        <span class="en">Contact Information</span>
+                        <span class="ar">معلومات الاتصال</span>
+                    </h3>
+
+                    <div class="contact-item">
+                        <label>📞 <span class="en">PHONE</span><span class="ar">الهاتف</span></label>
+                        <p><a href="tel:+966551378709">+966 55 137 8709</a></p>
+                    </div>
+
+                    <div class="contact-item">
+                        <label>📍 <span class="en">LOCATION</span><span class="ar">الموقع</span></label>
+                        <p>
+                            <span class="en">7170, Al Khodaryah<br>Dammam 32435<br>Saudi Arabia</span>
+                            <span class="ar">7170، الخضرية<br>الدمام 32435<br>المملكة العربية السعودية</span>
+                        </p>
+                        <a href="https://maps.app.goo.gl/jfTcFyVsYLGbY2wX9" target="_blank" class="btn btn-primary" style="margin-top: 10px; padding: 10px 20px; font-size: 14px;">
+                            <span class="en">📍 View on Google Maps</span>
+                            <span class="ar">📍 اعرض على جوجل مابس</span>
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <label>⏰ <span class="en">HOURS</span><span class="ar">ساعات العمل</span></label>
+                        <p>
+                            <span class="en">Opens 7:00 AM<br><small style="color: #aaa;">Call for exact closing hours</small></span>
+                            <span class="ar">يفتح الساعة 7:00 صباحاً<br><small style="color: #aaa;">اتصل للحصول على ساعات الإغلاق الدقيقة</small></span>
+                        </p>
+                    </div>
+
+                    <div class="contact-item">
+                        <label>⭐ <span class="en">RATING</span><span class="ar">التقييم</span></label>
+                        <div class="stars">★★★★★</div>
+                        <p class="rating-text">
+                            <span class="en">5.0 out of 5 - Google Reviews</span>
+                            <span class="ar">5.0 من 5 - تقييمات جوجل</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3563.8826!2d50.2390!3d26.4375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49f7d4d4d4d4d5%3A0xabcdef1234567890!2sReidah%20Hamad%20Al%20Mukhlas%20Steel%20%26%20Aluminium%20Workshop!5e0!3m2!1sen!2ssa!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border:0;"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>
+                <span class="en">&copy; 2024 Reidah Hamad Al Mukhlas Steel & Aluminium Workshop. All rights reserved.</span>
+                <span class="ar">&copy; 2024 ورشة رئيدة حمد المخلص للفولاذ والألمنيوم. جميع الحقوق محفوظة.</span>
+            </p>
+            <p style="margin-top: 10px; font-size: 12px;">
+                <span class="en">Professional Fabrication | Quality Craftsmanship | Customer Satisfaction</span>
+                <span class="ar">تصنيع احترافي | حرفية عالية | رضا العملاء</span>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleLanguage() {
+            document.body.classList.toggle('arabic');
+            
+            // Save preference
+            if (document.body.classList.contains('arabic')) {
+                localStorage.setItem('language', 'arabic');
+            } else {
+                localStorage.setItem('language', 'english');
+            }
+        }
+
+        // Load saved language preference
+        window.addEventListener('load', function() {
+            const savedLanguage = localStorage.getItem('language');
+            if (savedLanguage === 'arabic') {
+                document.body.classList.add('arabic');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
